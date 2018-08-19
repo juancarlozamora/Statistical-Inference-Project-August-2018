@@ -1,0 +1,88 @@
+---
+title: "Statistical Inference P1 August"
+author: "Zamora, Juan Carlo"
+date: "August 19, 2018"
+output:  
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+## Overview
+The purpose of this data analysis is to investigate the exponential distribution
+and compare it to the Central Limit Theorem. For this analysis, the lambda will 
+be set to 0.2 for all of the simulations. This investigation will compare the 
+distribution of averages of 40 exponentials over 1000 simulations.
+
+
+## Simulations
+Set the simulation variables lambda, exponentials, and seed.
+```{r}
+ECHO=TRUE
+set.seed(6969)
+lambda = 0.2
+exponentials = 40
+```
+
+Run Simulations with variables
+```{r}
+Means = NULL
+for (i in 1 : 1000) Means = c(Means, mean(rexp(exponentials, lambda)))
+```
+
+
+## Sample Mean versus Theoretical Mean
+#### Sample Mean
+Calculating the mean from the simulations with give the sample mean.
+```{r}
+mean(Means)
+```
+
+#### Theoretical Mean
+The theoretical mean of an exponential distribution is lambda^-1.
+```{r}
+lambda^-1
+```
+
+#### Difference of Means
+Minimal difference from the simulation and the theoretical values.
+```{r}
+abs(mean(Means)-lambda^-1)
+```
+
+
+## Sample Variance versus Theoretical Variance
+#### Sample Variance
+Calculate the variance
+```{r}
+var(Means)
+```
+
+#### Theoretical Variance
+The theoretical variance of an exponential distribution is 
+(lambda * sqrt(n))^-2.
+```{r}
+(lambda * sqrt(exponentials))^-2
+```
+
+#### Difference of variance
+Minimal difference from the simulation and the theoretical values.
+```{r}
+abs(var(Means)-(lambda * sqrt(exponentials))^-2)
+```
+
+
+## Distribution
+This is a density histogram of the 1000 simulations. There is an overlay with a 
+normal distribution that has a mean of lambda^-1 and standard deviation of 
+(lambda*sqrt(n))^-1, the theoretical normal distribution for the simulations.
+```{r}
+library(ggplot2)
+ggplot(data.frame(y=Means), aes(x=y)) + 
+  geom_histogram(aes(y=..density..), binwidth=0.0625, fill="#E70F00", 
+                 color="pink") +
+  stat_function(fun=dnorm, args = list(mean=lambda^-1, 
+                                    sd=(lambda*sqrt(exponentials))^-1), 
+                size=1.5) +
+  labs(title="Simulation", x="Mean")
+```
