@@ -1,7 +1,7 @@
 # Statistical-Inference-Project-August-2018
 Peer-graded Assignment: Statistical Inference Course Project
 
-The project consists of two parts:
+## The project consists of two parts:
 
 A simulation exercise.
 Basic inferential data analysis.
@@ -9,7 +9,7 @@ You will create a report to answer the questions. Given the nature of the series
 
 Each pdf report should be no more than 3 pages with 3 pages of supporting appendix material if needed (code, figures, etcetera).
 
-Review criterialess 
+## Review criteria
 Did you show where the distribution is centered at and compare it to the theoretical center of the distribution?
 Did you show how variable it is and compare it to the theoretical variance of the distribution?
 Did you perform an exploratory data analysis of at least a single plot or table highlighting basic features of the data?
@@ -40,11 +40,11 @@ This exercise is asking you to use your knowledge of the theory given in class t
 
 Confused? Try re-watching video lecture 07 for a starter on how to complete this project.
 
-Sample Project Report Structure
+##  Sample Project Report Structure
 
 Of course, there are multiple ways one could structure a report to address the requirements above. However, the more clearly you pose and answer each question, the easier it will be for reviewers to clearly identify and evaluate your work.
 
-A sample set of headings that could be used to guide the creation of your report might be:
+## A sample set of headings that could be used to guide the creation of your report might be:
 
 Title (give an appropriate title) and Author Name
 Overview: In a few (2-3) sentences explain what is going to be reported on.
